@@ -4,7 +4,7 @@ const http = require("http");
 const cors = require("cors");
 
 //functons from user.js
-const {addUser, removeUser, getUser, getUsersInRoom} = require("./users");
+const {addUser, removeUser, getUser, getUsersInRoom} = require("./users.ts");
 
 const app = express();
 const server = http.createServer(app);
