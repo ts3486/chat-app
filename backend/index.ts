@@ -16,10 +16,10 @@ app.use(express.json());
 const io = socketio(server);
 
 //triggers at connection ( = page opened)
-io.on("connection", (socket) => {
+io.on("connection", (socket: any) => {
     console.log("New Connection!");
 
-    socket.on("join", ({name, room}, callback) => {
+    socket.on("join", ({name, room}: any, callback: any) => {
 
         console.log(name, room);
 
@@ -40,7 +40,7 @@ io.on("connection", (socket) => {
         socket.join(user.room);
     } )
 
-    socket.on("sendMessage", (message, callback) => {
+    socket.on("sendMessage", (message: string, callback: any) => {
         const user = getUser(socket.id);
 
         io.to(user.room).emit("message", {user: user.name, text: message});

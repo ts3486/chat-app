@@ -1,13 +1,11 @@
-export{}
-
 const users: any = [];
 
-const addUser = ({id, name, room}) => {
+const addUser = ({id, name, room}: any) => {
 
     name.trim().toLowerCase();
     room.trim().toLowerCase();
 
-    const existingUser = users.find(user => user.name === name && user.room === room)
+    const existingUser = users.find((user: any) => user.name === name && user.room === room)
 
     if(existingUser){
         return {error: "Username is taken"}
@@ -24,7 +22,7 @@ const addUser = ({id, name, room}) => {
 
 const removeUser = (id: any) => {
 
-    const index = users.find( id => users.id === id);
+    const index = users.find( (id:string) => users.id === id);
 
     if(index != -1){
         return users.splice(index, 1)[0];
@@ -35,7 +33,9 @@ const removeUser = (id: any) => {
 const getUser = (id: any) => users.find((user: any) => user.id === id);
 
 
-const getUsersInRoom = (room) => users.filter((user) => user.room === room);
+const getUsersInRoom = (room: string) => users.filter((user: any) => user.room === room);
+
+export{}
 
 
 module.exports = {addUser, removeUser, getUser, getUsersInRoom};
